@@ -50,7 +50,6 @@ def edit(request, hero_id):
         return render(request, 'superheroes/edit.html', context)
 
 def delete(request, hero_id):
-    if request.method == "POST":
-        hero_id.delete()
-    else:
-        return render(request, 'superheroes/delete.html')
+    deleteMe = Superhero.objects.get(pk=hero_id)
+    deleteMe.delete()
+    return HttpResponseRedirect(reverse('superheroes:index'))
