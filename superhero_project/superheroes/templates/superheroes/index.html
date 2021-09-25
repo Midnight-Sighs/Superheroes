@@ -4,31 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
     <title>Superhero Index</title>
 </head>
 <body>
-    <a href="{% url 'superheroes:create' %}">Create New Hero</a>
-    <table>
-        <thead>
-            <tr>
-                <th scope="col">Superhero</th>
-                <th scope="col">Detail Link</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-                {% for hero in all_heroes %}
-                <tr>
-                <th scope="row">{{hero.name}}</th>
-                <td><a href="{% url 'superheroes:detail' hero.id %}">Hero Details</a></td>
-                <td><a href="{% url 'superheroes:edit' hero.id %}">Edit Hero</a></td>
-                <td><a href="{% url 'superheroes:delete' hero.id %}">Delete Hero</a></td>
+    <div class="container-fluid bg-secondary">
+        <p class="display-3 text-center">Everybody Loves Superheros</p>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 ">
+
+        <h1 class="text-center">Superhero Index</h1>
+        <p class="text-center"><a href="{% url 'superheroes:create' %}">Create A New Hero For the List</a></p>
+    
+        <table class="table table-sm">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Superhero</th>
+                    <th scope="col">Detail Link</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
-                {% endfor %}
-        </tbody>
-    </table>   
+            </thead>
+            <tbody>
+                    {% for hero in all_heroes %}
+                    <tr class="table-info">
+                    <th scope="row">{{hero.name}}</th>
+                    <td><a href="{% url 'superheroes:detail' hero.id %}">Hero Details</a></td>
+                    <td><a href="{% url 'superheroes:edit' hero.id %}">Edit Hero</a></td>
+                    <td><a href="{% url 'superheroes:delete' hero.id %}">Delete Hero</a></td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="table-primary">
+                    <div class="col"><th scope="col">Superhero</th></div>
+                    <div class="col"><th scope="col">Detail Link</th></div>
+                    <div class="col"><th scope="col">Edit</th></div>
+                    <div class="col"><th scope="col">Delete</th></div>
+                </tr>
+            </tfoot>
+        </table> 
+    </div>  
+<div class="col-6 pt-5">
     {% load static %}
-    <img src="{% static 'superheroes/comics.jpg' %}" alt="Scattered Comics">
+    <img src="{% static 'superheroes/comics.jpg' %}" class="img-fluid img-thumbnail" alt="Scattered Comics">
+</div>
 </body>
 </html>

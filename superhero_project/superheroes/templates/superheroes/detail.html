@@ -4,17 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
     <title>Hero Details</title>
 </head>
 <body>
-    <h1>Hero Details</h1>
-    <ul>
-        <li>Name: {{single_hero.name}}</li>
-        <li>Alter Ego: {{single_hero.alter_ego}}</li>
-        <li>Primary Special Ability: {{single_hero.primary_ability}}</li>
-        <li>Secondary Special Ability: {{single_hero.secondary_ability}}</li>
-        <li>Catchphrase: "{{single_hero.catchphrase}}"</li>
-    </ul>
-    
+    <div class="container container-fluid text-center pt-5 pb-5"><h1>Selected Hero Details</h1></div>
+   
+    <div class="container-fluid">
+        <div class="row">
+            <div class ="col-md-4 gx-4">
+                {% load static %}
+                <img src="{% static 'superheroes/superhero_dude.png' %}" class="img-thumbnail" alt="proud superhero silhoutte" >
+            </div>
+            <div class="col-md-5 gx-4">
+                <div class="row bg-info">
+                    <div class="col-sm">Name:</div><div class="col-sm">{{single_hero.name}}</div>
+                </div>
+                <div class="row bg-info">
+                    <div class = "col-sm">Alter Ego:</div><div class = "col-sm"> {{single_hero.alter_ego}}</div>
+                </div>
+                <div class="row bg-info">
+                    <div class = "col-sm">Primary Special Ability:</div><div class="col-sm"> {{single_hero.primary_ability}}</div>
+                </div>
+                <div class="row bg-info">
+                    <div class="col-sm">Secondary Special Ability: </div><div class="col-sm">{{single_hero.secondary_ability}}</div>
+                </div>
+                <div class="row bg-info">
+                    <div class="col-sm">Catchphrase: </div><div class = "col-sm">"{{single_hero.catchphrase}}"</div>
+                </div>
+                <div class="row ft-2">
+                    <div class="col-lg">{{single_hero.description}}</div>
+                </div>
+            </div>
+            <div class="col-md-2 gx-4">
+                {% load static %}
+                <img src="{% static 'superheroes/superhero_flying.png' %}" class="img-thumbnail" alt="flying superhero silhouette">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
