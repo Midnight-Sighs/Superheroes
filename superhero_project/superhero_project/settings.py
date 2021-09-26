@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'superheroes',
+    'sidekicks',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +79,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
         'NAME': 'superhero_database',
+        'USER': 'root',
+        'PASSWORD': 'R41nbow.uniCORN',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'autocommit': True
+        }
+    },
+    'sidekicks':{
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'sidekick_database',
         'USER': 'root',
         'PASSWORD': 'R41nbow.uniCORN',
         'HOST': '127.0.0.1',

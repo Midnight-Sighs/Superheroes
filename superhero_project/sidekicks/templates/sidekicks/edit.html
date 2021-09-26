@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <title>Create New Hero</title>
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+            <div class ="container container-fluid text-center pt-5 pb-5">
+                <h1>You are editing {{single_sidekick.name}}. </h1> 
+                <p>You can leave fields as is or you can change them as desired.</p>
+                <p><a href="/sidekicks">Or go back to the list of sidekicks</a></p>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class = "col-sm gx-4 bg-success">Name: </div><div class="col-md-10"><input type = "text" class="form-control" name="name" id ="name" value="{{single_sidekick.name}}"></div>
+                </div>
+                <div class="row">
+                    <div class = "col-sm gx-4 bg-success">Alter Ego: </div><div class="col-md-10"><input type = "text" class="form-control" name="alter_ego" id="alter_ego" value="{{single_sidekick.alter_ego}}"></div>
+                </div>
+                <div class="row">
+                    <div class = "col-sm gx-4 bg-success">Sidekick To: </div><div class="col-md-10"><input type="text" class="form-control" name ="sidekick_to" id = "sidekick_to" value="{{single_sidekick.sidekick_to}}"></div>
+                </div>
+                <div class="row">
+                    <div class = "col-sm gx-4 bg-success">Primary Ability: </div><div class="col-md-10"><input type="text" class="form-control" name="primary_ability" id="primary_ability" value="{{single_sidekick.primary_ability}}"></div>
+                </div>
+                <div class="row">
+                    <div class = "col-sm gx-4 pb-3 bg-success">Description: </div><div class="col-md-10 pb-3"><input type="text" class="form-control" name="description"  id="description" value="{{single_sidekick.description}}"></div>   
+                </div>
+                <div class="row">
+                    <div class = "col-sm gx-4 "></div><div class="col-md-10"><input type="submit" value="Save Edits!"></div>
+                </div>
+            </form>
+            </div>
+        <div class="col-md-4 gx-4">
+            {% load static %}
+            <img src="{% static 'sidekicks/comics_box.jpg' %}" class="img-thumbnail" alt="comics in a box">
+        </div>
+    </div>
+</body>
+</html>

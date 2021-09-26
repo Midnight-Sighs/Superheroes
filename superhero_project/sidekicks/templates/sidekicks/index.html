@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <title>Sidekick Index</title>
+</head>
+<body>
+    <div class="container-fluid bg-secondary">
+        <h1 class="text-center">Everybody Loves Sidekicks (Especially Batman!)</h1>
+        <h6 class = "text-center"><a href="/superheroes">HELP!! Sidekicks aren't cool! Take me back to superheroes!</a></h6>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 ">
+
+        <h1 class="text-center">Sidekick Index</h1>
+        <p class="text-center"><a href="{% url 'sidekicks:create' %}">Create A New Sidekick For the List</a></p>
+    
+        <table class="table table-sm">
+            <thead>
+                <tr class="table-warning">
+                    <th scope="col">Sidekick</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for sidekick in all_sidekicks %}
+                    <tr class="table-success">
+                    <th scope="row">{{sidekick.name}}</th>
+                    <td><a href="{% url 'sidekicks:detail' sidekick.id %}">Sidekick Details</a></td>
+                    <td><a href="{% url 'sidekicks:edit' sidekick.id %}">Edit Sidekick</a></td>
+                    <td><a href="{% url 'sidekicks:delete' sidekick.id %}">Delete Sidekick</a></td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="table-warning">
+                    <div class="col"><th scope="col">Sidekick</th></div>
+                    <div class="col"><th scope="col">Details</th></div>
+                    <div class="col"><th scope="col">Edit</th></div>
+                    <div class="col"><th scope="col">Delete</th></div>
+                </tr>
+            </tfoot>
+        </table> 
+    </div>  
+<div class="col-5 pt-5">
+    {% load static %}
+    <img src="{% static 'sidekicks/scattered_comics.jpg' %}" class="img-fluid img-thumbnail" alt="Scattered Comics">
+</div>
+</body>
+</html>
